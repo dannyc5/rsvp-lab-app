@@ -1,0 +1,16 @@
+<h1>Create a new invite</h1>
+
+<%= form_for @invite, url: {action: "create"} do |f| %>
+
+  Who would you like to invite?<br>
+  <%= collection_select(:invite, :name, User.all, :name, :name, prompt: true) %>
+
+  <%= f.label :message %>:
+  <%= f.text_field :message %><br />
+
+  <%= f.hidden_field :event_id, value: @event.id %>
+
+  <%= f.submit "Create" %>
+<% end %>
+
+<a href="/invites">Cancel</a>

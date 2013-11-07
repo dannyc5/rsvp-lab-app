@@ -1,0 +1,12 @@
+<h1>Hi <%= @user.name %>! Create a new event.</h1>
+
+<%= form_for @event, url: {action: "create"} do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+  <%= f.submit "Create" %>
+<% end %>
+
+<a href="/events">Cancel</a>

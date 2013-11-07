@@ -1,0 +1,15 @@
+<h1>Edit <%= @invite.name %></h1>
+
+<%= form_for @invite, url: {action: "update"} do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.label :message %>:
+  <%= f.text_field :message %><br />
+
+  <%= collection_select(:invite, :event_id, Event.all, :id, :name, prompt: true) %>
+  
+  <%= f.submit "Update" %>
+<% end %>
+
+<a href="/invites">Cancel</a>

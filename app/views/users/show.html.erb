@@ -1,0 +1,16 @@
+<h1>User: <%= @user.name %></h1>
+
+<% unless @user.events.empty? %>
+  <p>Events:</p>
+  <ol>
+    <% @user.events.each do |event| %>
+      <li><a href="/events/<%= event.id %>"><%= event.name %></a></li>
+    <% end %>
+  </ol><br>
+<% end %><br>
+
+<%= link_to "Create a new event as #{@user.name}", "/users/<%= @user.id %>/events/new" %>
+
+<a href="/users">Back</a> | 
+<a href="/users/<%= @user.id %>/edit">Edit</a> | 
+<%= button_to 'Destroy', @user, :method => :delete %>

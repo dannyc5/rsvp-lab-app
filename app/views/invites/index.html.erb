@@ -1,0 +1,8 @@
+<h1>Invites</h1>
+<ul>
+  <% @invites.each do |invite| %>
+    <li>Invitation for <%= link_to invite.name, invite.invited_user %> to come to <%= link_to invite.event.name, invite.event %> <br> Message: <%= invite.message %> </li><br>
+  <% end %>
+</ul>
+
+To create more invites, first choose an <%= link_to "event", controller: "events", action: "index" %>

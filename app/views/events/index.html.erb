@@ -1,0 +1,9 @@
+<h1>Events</h1>
+<% @events.each do |event| %>
+  <%= link_to event.name, event_path(event) %>,
+    created by <%= event.user.name %><br>
+    <%= link_to "Invite peepz", "/events/#{event.id}/invites/new" %><br><br>
+<% end %><br>
+
+<p>To create a new event, please select a <%= link_to "user page", controller: "users", action: "index" %>
+.</p>

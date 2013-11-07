@@ -1,0 +1,17 @@
+<h1>Event: <%= @event.name %></h1>
+
+<% unless @event.invites.empty? %>
+  <p>Invited:</p>
+  <ol>
+    <% @event.invites.each do |invite| %>
+      <li><%= link_to invite.event.user.name, invite.event.user %> | 
+        RSVP: <%= invite.event.user.rsvp ? "Yes" : "No" %></li>
+    <% end %>
+  </ol><br>
+<% end %>
+
+<p><strong><a href="/events/<%= @event.id %>/invites/new">Create new invite</a></strong></p>
+
+<a href="/events">Back</a> | 
+<a href="/events/<%= @event.id %>/edit">Edit</a> | 
+<%= button_to 'Destroy', @event, :method => :delete %>

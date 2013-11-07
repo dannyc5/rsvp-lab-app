@@ -1,0 +1,12 @@
+<h1>Edit <%= @event.name %></h1>
+
+<%= form_for @event, url: {action: "update"} do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= collection_select(:event, :user_id, User.all, :id, :name, prompt: true) %>
+  
+  <%= f.submit "Update" %>
+<% end %>
+
+<a href="/events">Cancel</a>

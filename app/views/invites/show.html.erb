@@ -1,0 +1,8 @@
+<h1>Invitation for <%= @invite.user.name %> to <%= @invite.event.name %></h1>
+
+<h2>Message</h2>
+<%= @invite.message %>
+
+<a href="/invites">Back</a> | 
+<a href="/invites/<%= @invite.id %>/edit">Edit</a> | 
+<%= button_to 'Destroy', @invite, :method => :delete %>
